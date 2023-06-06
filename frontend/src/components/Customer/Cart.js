@@ -11,7 +11,7 @@ const Cart = () => {
   const [time, setTime] = useState(0);
   const [pswd, setPswd] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [pur,setPur]=useState(false)
+  const [pur, setPur] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
   const getPrice = async () => {
@@ -65,7 +65,7 @@ const Cart = () => {
     user.cart.map((item) => {
       ax.put("../trans/add", {
         date: new Date(),
-        buyer:  user,
+        buyer: user,
         seller: item.seller,
         item: item,
       });
@@ -123,7 +123,9 @@ const Cart = () => {
                               <div className="card p-3">
                                 <div className="d-flex justify-content-between align-items-center ">
                                   <div>
-                                    <h4 className="text-uppercase">{item.seller.name}</h4>
+                                    <h4 className="text-uppercase">
+                                      {item.seller.name}
+                                    </h4>
 
                                     <div className="mt-3">
                                       <h1 className="main-heading m-2">
@@ -247,62 +249,62 @@ const Cart = () => {
                             ></button>
                           </div>
                           <div className="card-body px-5">
-                            
-                            {pur?
-                            <div><p>Your purchase has been confirmed.
-                            </p>
-                            <p>Expected Time for Delivery : {time} days.</p>
-                            <p>Thank you for shopping with us!!</p>
-                              
+                            {pur ? (
+                              <div>
+                                <p>Your purchase has been confirmed.</p>
+                                <p>Expected Time for Delivery : {time} days.</p>
+                                <p>Thank you for shopping with us!!</p>
                               </div>
-                            :<><p className="card-text py-2">
-                            Enter your password to confirm your purchase and
-                            amount will be automatically deducted from your
-                            wallet.
-                          </p>
-                            <form>
-                              <div className="form-floating m-2">
-                                <input
-                                  type="number"
-                                  className="form-control"
-                                  id="floatingInput"
-                                  placeholder="name@example.com"
-                                  value={user.balance}
-                                  disabled={true}
-                                />
-                                <label htmlFor="floatingInput">
-                                  Your Balance
-                                </label>
-                              </div>
+                            ) : (
+                              <>
+                                <p className="card-text py-2">
+                                  Enter your password to confirm your purchase
+                                  and amount will be automatically deducted from
+                                  your wallet.
+                                </p>
+                                <form>
+                                  <div className="form-floating m-2">
+                                    <input
+                                      type="number"
+                                      className="form-control"
+                                      id="floatingInput"
+                                      placeholder="name@example.com"
+                                      value={user.balance}
+                                      disabled={true}
+                                    />
+                                    <label htmlFor="floatingInput">
+                                      Your Balance
+                                    </label>
+                                  </div>
 
-                              <div className="form-floating m-2">
-                                <input
-                                  type="password"
-                                  className="form-control"
-                                  id="floatingPassword"
-                                  placeholder="Password"
-                                  onChange={(event) => {
-                                    setPswd(event.target.value);
-                                  }}
-                                />
-                                <label htmlFor="floatingPassword">
-                                  Password
-                                </label>
-                              </div>
-                              <button
-                                type="button"
-                                className="btn btn-dark w-100"
-                                onClick={purchase}
-                                disabled={
-                                  pswd != user.pswd || user.balance < price
-                                }
-                              >
-                                Confirm purchase
-                              </button>
-                            </form>
-                            </>
-                            }
-                            
+                                  <div className="form-floating m-2">
+                                    <input
+                                      type="password"
+                                      className="form-control"
+                                      id="floatingPassword"
+                                      placeholder="Password"
+                                      onChange={(event) => {
+                                        setPswd(event.target.value);
+                                      }}
+                                    />
+                                    <label htmlFor="floatingPassword">
+                                      Password
+                                    </label>
+                                  </div>
+                                  <button
+                                    type="button"
+                                    className="btn btn-dark w-100"
+                                    onClick={purchase}
+                                    disabled={
+                                      pswd != user.pswd || user.balance < price
+                                    }
+                                  >
+                                    Confirm purchase
+                                  </button>
+                                </form>
+                              </>
+                            )}
+
                             <div className="d-flex justify-content-between mt-4">
                               <Link to="../" onClick={closeModal}>
                                 Back to Home

@@ -12,10 +12,10 @@ const Home = () => {
       baseURL: "http://localhost:8080/items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
-    const getItems = async () => {
-      const data = await ax.get("/");
-      setItems(data.data);
-    };
+                        const getItems = async () => {
+                          const data = await ax.get("/");
+                          setItems(data.data);
+                        };
     getItems();
   }, []);
 
