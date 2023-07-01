@@ -4,6 +4,7 @@ import Axios from "axios";
 import logo from "../../logo.svg";
 import cart from "../../cart.svg";
 import Modal from "@mui/material/Modal";
+import { BASE_URL } from "../../URLs";
 
 const AdminLayout = () => {
   let { id } = useParams();
@@ -27,7 +28,7 @@ const AdminLayout = () => {
   const [bal, setBal] = useState(1000);
   useEffect(() => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/users",
+      baseURL: BASE_URL + "users",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     const getUser = async () => {
@@ -39,7 +40,7 @@ const AdminLayout = () => {
   }, []);
   const addBalance = () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/users",
+      baseURL: BASE_URL + "users",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     ax.put(

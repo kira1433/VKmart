@@ -3,6 +3,7 @@ import { useState } from "react";
 import logo from "../../logo.svg";
 import Modal from "@mui/material/Modal";
 import Axios from "axios";
+import { BASE_URL } from "../../URLs";
 
 const Cart = () => {
   const [user, setUser] = useOutletContext();
@@ -16,7 +17,7 @@ const Cart = () => {
   const closeModal = () => setIsOpen(false);
   const getPrice = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 
@@ -26,7 +27,7 @@ const Cart = () => {
   };
   const getTime = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 
@@ -36,7 +37,7 @@ const Cart = () => {
   };
   const update = async (item) => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 
@@ -48,7 +49,7 @@ const Cart = () => {
   };
   const dele = async (item) => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 
@@ -58,7 +59,7 @@ const Cart = () => {
   };
   const purchase = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     setPur(true);

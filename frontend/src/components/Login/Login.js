@@ -3,6 +3,7 @@ import { useState } from "react";
 import logo from "../../logo.svg";
 import Modal from "@mui/material/Modal";
 import Axios from "axios";
+import { BASE_URL } from "../../URLs";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -17,7 +18,7 @@ const Login = () => {
   const [result, setResult] = useState(true);
   const onLoginClick = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/users",
+      baseURL: BASE_URL + "users",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     await ax
@@ -35,7 +36,7 @@ const Login = () => {
   };
   const resetPassword = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/users",
+      baseURL: BASE_URL + "users",
       headers: { "Content-Type": "application/json" },
     });
     await ax

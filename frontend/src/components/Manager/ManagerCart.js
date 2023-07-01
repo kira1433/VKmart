@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import logo from "../../logo.svg";
 import Modal from "@mui/material/Modal";
 import Axios from "axios";
+import { BASE_URL } from "../../URLs";
 
 const ManagerCart = () => {
   const [user, setUser] = useOutletContext();
@@ -26,7 +27,7 @@ const ManagerCart = () => {
   });
   const getItems = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 
@@ -40,7 +41,7 @@ const ManagerCart = () => {
 
   const update = async (item) => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 
@@ -49,7 +50,7 @@ const ManagerCart = () => {
 
   const dele = async (item) => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 
@@ -58,7 +59,7 @@ const ManagerCart = () => {
   };
   const purchase = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     setPur(true);

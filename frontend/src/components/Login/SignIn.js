@@ -2,6 +2,7 @@ import { Link, redirect } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../logo.svg";
 import Axios from "axios";
+import { BASE_URL } from "../../URLs";
 const SignIn = () => {
   const [user, setUser] = useState({
     id: 0,
@@ -20,7 +21,7 @@ const SignIn = () => {
 
   const onSignInClick = async () => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/users",
+      baseURL: BASE_URL + "users",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
 

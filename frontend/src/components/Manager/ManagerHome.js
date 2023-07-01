@@ -2,10 +2,11 @@ import React, { useState, useEffect, ReactDOM } from "react";
 import Axios from "axios";
 import { useOutletContext } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import { BASE_URL } from "../../URLs";
 
 const ManagerHome = () => {
   const ax = Axios.create({
-    baseURL: "http://localhost:8080/trans",
+    baseURL: BASE_URL + "trans",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
   });
 
@@ -29,7 +30,7 @@ const ManagerHome = () => {
 
   const update = async (item) => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     console.log(item);

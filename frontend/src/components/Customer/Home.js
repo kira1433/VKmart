@@ -2,6 +2,7 @@ import React, { useState, useEffect, ReactDOM } from "react";
 import Axios from "axios";
 import { useOutletContext } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import { BASE_URL } from "../../URLs";
 
 const Home = () => {
   const [user, setUser] = useOutletContext();
@@ -9,7 +10,7 @@ const Home = () => {
   const [qty, setQty] = useState(1);
   useEffect(() => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
                         const getItems = async () => {
@@ -21,7 +22,7 @@ const Home = () => {
 
   const update = async (item) => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/items",
+      baseURL: BASE_URL + "items",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     console.log(item);

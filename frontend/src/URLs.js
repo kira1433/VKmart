@@ -1,0 +1,1 @@
+export const BASE_URL = process.env.NODE_ENV === 'production' ? "https://vkmart-production.up.railway.app/" : 'http://localhost:8080/'

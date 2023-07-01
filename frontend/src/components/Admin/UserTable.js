@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../URLs";
 
 const UserTable = () => {
   const getCustomerRow = () => {
@@ -30,7 +31,7 @@ const UserTable = () => {
 
   useEffect(() => {
     const ax = Axios.create({
-      baseURL: "http://localhost:8080/users",
+      baseURL: BASE_URL + "users",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
     });
     const getUser = async () => {
